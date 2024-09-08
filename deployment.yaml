@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: sample-static-app
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: sample-static-app
@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: sample-static-app
-        image: gcr.io/cicdproject-435004/sample-static-app:30
+        image: gcr.io/cicdproject-435004/sample-static-app:${{ github.run_number }}
         ports:
         - containerPort: 80
