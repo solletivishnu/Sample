@@ -46,8 +46,6 @@ jobs:
           ls
           cat deployment.yaml
           cat service.yaml
-          kubectl cluster-info
-          kubectl config current-context
 
       - name: Deploy to Kubernetes
         run: |
