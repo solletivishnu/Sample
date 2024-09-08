@@ -43,8 +43,8 @@ jobs:
       - name: test1
         run: |
           ls
-          cat -f deployment.yaml
-          cat -f service.yaml
+          cat deployment.yaml
+          cat service.yaml
 
       - name: Deploy to Kubernetes
         run: |
