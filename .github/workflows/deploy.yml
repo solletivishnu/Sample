@@ -46,6 +46,8 @@ jobs:
           ls
           cat deployment.yaml
           cat service.yaml
+          gcloud container clusters get-credentials sample-cicd --region asia-southeast1 --project cicdproject-435004
+          kubectl cluster-info
 
       - name: Deploy to Kubernetes
         run: |

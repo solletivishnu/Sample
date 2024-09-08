@@ -7,7 +7,7 @@ COPY script.js /usr/share/nginx/html/
 COPY style.css /usr/share/nginx/html/
 
 # Expose port 80 to allow access to the container
-EXPOSE 8080
+EXPOSE 80
 
 
 
