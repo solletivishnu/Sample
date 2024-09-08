@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sample-static-app1
+  name: sample-static-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: sample-static-app1
+      app: sample-static-app
   template:
     metadata:
       labels:
-        app: sample-static-app1
+        app: sample-static-app
     spec:
       containers:
-      - name: sample-static-app1
-        image: gcr.io/cicdproject-435004/sample-static-app1:${{ github.run_number }}
+      - name: sample-static-app
+        image: gcr.io/cicdproject-435004/sample-static-app:${{ github.run_number }}
         ports:
         - containerPort: 80

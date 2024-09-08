@@ -37,7 +37,7 @@ jobs:
 
       - name: Build Docker Image
         run: |
-          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app1:${{ github.run_number }} .
+          docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app:${{ github.run_number }} .
 
       - name: AUTH Docker Image
         run: |
@@ -45,14 +45,14 @@ jobs:
       
       - name: Push Docker Image
         run: |
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app1:${{ github.run_number }}
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app:${{ github.run_number }}
       
       - name: test
         run: |
           ls
           cat deployment.yaml
           cat service.yaml
-          gcloud container clusters get-credentials sample-cicd --region asia-southeast1 --project cicdproject-435004
+          gcloud container clusters get-credentials cluster-sample --zone us-central1-c --project cicdproject-435004
           kubectl cluster-info
 
       - name: Deploy to Kubernetes
