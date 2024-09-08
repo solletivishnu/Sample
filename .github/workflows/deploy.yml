@@ -19,13 +19,26 @@ jobs:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
           credentials: ${{ secrets.GCP_CREDENTIALS }}
 
+      - name: Authenticate with Google Cloud
+        uses: google-github-actions/auth@v0
+        with:
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Set up gcloud CLI
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          version: 'latest'
+
       - name: Build Docker Image
         run: |
           docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app .
 
-      - name: Push Docker Image
+      - name: AUTH Docker Image
         run: |
           gcloud auth configure-docker
+      
+      - name: Push Docker Image
+        run: |
           docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/sample-static-app
 
       - name: Deploy to Kubernetes
