@@ -43,6 +43,9 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl apply -f ../../deployemnt.yaml
-          kubectl apply -f ../../service.yaml
+          cd ..
+          ls
+          cd ..
+          kubectl apply -f deployemnt.yaml
+          kubectl apply -f service.yaml
 
