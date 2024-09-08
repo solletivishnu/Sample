@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: sample-static-app1
-        image: gcr.io/cicdproject-435004/sample-static-app1
+        image: gcr.io/cicdproject-435004/sample-static-app1:${{ github.run_number }}
         ports:
         - containerPort: 80
