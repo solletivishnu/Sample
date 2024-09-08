@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   sample-static-app:
-    image: gcr.io/cicdproject-435004/sample-static-app:34
+    build: .
+    image: gcr.io/cicdproject-435004/sample-static-app:41
     ports:
       - "80:80"

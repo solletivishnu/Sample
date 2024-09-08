@@ -41,16 +41,17 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
         with:
           version: 'latest'
-
-
+      
+      - name: Authenticate Docker with GCR
+        run: gcloud auth configure-docker
+        
       - name: Build Docker Compose
         run: |
           docker-compose build
 
       - name: Push Docker Images
         run: |
-          gcloud auth configure-docker
-          docker-compose push
+          docker-compose push 
       
       - name: test
         run: |
